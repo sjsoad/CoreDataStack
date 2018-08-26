@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-extension NSManagedObject {
+public extension NSManagedObject {
     
     public static let defaultPredicateType: NSCompoundPredicate.LogicalType = .and
     
@@ -73,14 +73,12 @@ extension NSManagedObject {
         return object as? T
     }
 
-    class func firstOrCreate(with attributes: [String : Any],
-                             predicateType: NSCompoundPredicate.LogicalType = defaultPredicateType,
+    class func firstOrCreate(with attributes: [String : Any], predicateType: NSCompoundPredicate.LogicalType = defaultPredicateType,
                              in context: NSManagedObjectContext) -> Self? {
         return _firstOrCreate(with: attributes, predicateType: predicateType, in: context)
     }
     
-    private class func _firstOrCreate<T>(with attributes: [String : Any],
-                                         predicateType: NSCompoundPredicate.LogicalType = defaultPredicateType,
+    private class func _firstOrCreate<T>(with attributes: [String : Any], predicateType: NSCompoundPredicate.LogicalType = defaultPredicateType,
                                          in context: NSManagedObjectContext) -> T? {
         let predicate = createPredicate(with: attributes, predicateType: predicateType)
         let request = createFetchRequest(predicate: predicate)
