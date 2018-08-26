@@ -1,5 +1,5 @@
 //
-//  DefaultCoreDataStack.swift
+//  AdvancedCoreDataStack.swift
 //  CoreDataStack
 //
 //  Created by Sergey Kostyan on 24.08.2018.
@@ -8,34 +8,32 @@
 
 import CoreData
 
-open class DefaultCoreDataStack: CoreDataStack {
+open class AdvancedCoreDataStack: CoreDataStack {
 
-    public let dataModel: NSManagedObjectModel
-
-    public let mainCoordinator: NSPersistentStoreCoordinator
-    public let writerCoordinator: NSPersistentStoreCoordinator
-    
     public let mainContext: NSManagedObjectContext
-    public var viewContext: NSManagedObjectContext { return mainContext }
+    
+    private let dataModel: NSManagedObjectModel
+    private let mainCoordinator: NSPersistentStoreCoordinator
+    private let writerCoordinator: NSPersistentStoreCoordinator
     
     // MARK: - Static -
     
-    public static var defaultStoreFolderURL: URL {
+    public class var defaultStoreFolderURL: URL {
         return FileManager.default.documentDirectoryURL
     }
     
-    public static var defaultStoreFileName: String {
+    public class var defaultStoreFileName: String {
         return "\(Bundle.main.appName).sqlite"
     }
     
-    public static var defaultStoreURL: URL {
+    public class var defaultStoreURL: URL {
         return defaultStoreFolderURL.appendingPathComponent(defaultStoreFileName)
     }
     
-    public static func buildAsync(withDataModelNamed dataModelName: String? = nil, storeURL: URL = DefaultCoreDataStack.defaultStoreURL,
+    public class func buildAsync(withDataModelNamed dataModelName: String? = nil, storeURL: URL = AdvancedCoreDataStack.defaultStoreURL,
                                   storeType: String = NSInMemoryStoreType, completion: @escaping (CoreDataStack) -> Void) {
         DispatchQueue.global().async {
-            let coreDataStack = DefaultCoreDataStack(withDataModelNamed: dataModelName, storeURL: storeURL, storeType: storeType)
+            let coreDataStack = AdvancedCoreDataStack(withDataModelNamed: dataModelName, storeURL: storeURL, storeType: storeType)
             DispatchQueue.main.async {
                 completion(coreDataStack)
             }
@@ -44,8 +42,8 @@ open class DefaultCoreDataStack: CoreDataStack {
     
     // MARK: - Lifecycle -
     
-    public init(withDataModelNamed dataModelName: String? = nil, storeURL: URL = DefaultCoreDataStack.defaultStoreURL,
-                storeType: String = NSInMemoryStoreType) {
+    public init(withDataModelNamed dataModelName: String? = nil, storeURL: URL = AdvancedCoreDataStack.defaultStoreURL,
+                storeType: String = NSSQLiteStoreType) {
         self.dataModel = NSManagedObjectModel.model(named: dataModelName)
         self.mainCoordinator = NSPersistentStoreCoordinator(managedObjectModel: dataModel)
         self.writerCoordinator = NSPersistentStoreCoordinator(managedObjectModel: dataModel)

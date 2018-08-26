@@ -10,11 +10,7 @@ import CoreData
 
 public protocol CoreDataStack {
     
-    var dataModel: NSManagedObjectModel { get }
-    var mainCoordinator: NSPersistentStoreCoordinator { get }
-    var writerCoordinator: NSPersistentStoreCoordinator { get }
     var mainContext: NSManagedObjectContext { get }
-    var viewContext: NSManagedObjectContext { get }
     
     func importerContext() -> NSManagedObjectContext
     func editorContext() -> NSManagedObjectContext

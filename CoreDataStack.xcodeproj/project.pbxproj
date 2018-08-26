@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		A507139B21317C4300586D0E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507139A21317C4300586D0E /* CoreDataStack.swift */; };
 		A52E19D8212FD3F40077D6E3 /* CoreDataStack.h in Headers */ = {isa = PBXBuildFile; fileRef = A52E19D6212FD3F40077D6E3 /* CoreDataStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A52E19E3212FD4390077D6E3 /* DefaultCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E19E2212FD4390077D6E3 /* DefaultCoreDataStack.swift */; };
+		A52E19E3212FD4390077D6E3 /* AdvancedCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E19E2212FD4390077D6E3 /* AdvancedCoreDataStack.swift */; };
+		A53ABF752132D0EF00670EB5 /* SimpleCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53ABF742132D0EF00670EB5 /* SimpleCoreDataStack.swift */; };
 		A591DA8A21318AB000FAFF18 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591DA8921318AB000FAFF18 /* NSManagedObject.swift */; };
 		A5D566C32131445200F4CAD0 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D566C22131445200F4CAD0 /* Bundle.swift */; };
 		A5D566C5213144BA00F4CAD0 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D566C4213144BA00F4CAD0 /* FileManager.swift */; };
@@ -24,7 +25,8 @@
 		A52E19D3212FD3F40077D6E3 /* CoreDataStack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataStack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52E19D6212FD3F40077D6E3 /* CoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		A52E19E0212FD41F0077D6E3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A52E19E2212FD4390077D6E3 /* DefaultCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoreDataStack.swift; sourceTree = "<group>"; };
+		A52E19E2212FD4390077D6E3 /* AdvancedCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCoreDataStack.swift; sourceTree = "<group>"; };
+		A53ABF742132D0EF00670EB5 /* SimpleCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCoreDataStack.swift; sourceTree = "<group>"; };
 		A591DA8921318AB000FAFF18 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		A5D566BF21313FFF00F4CAD0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5D566C22131445200F4CAD0 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
@@ -92,7 +94,8 @@
 			children = (
 				A507139921317C3000586D0E /* Public Protocols */,
 				A5D566C12131444B00F4CAD0 /* Extensions */,
-				A52E19E2212FD4390077D6E3 /* DefaultCoreDataStack.swift */,
+				A52E19E2212FD4390077D6E3 /* AdvancedCoreDataStack.swift */,
+				A53ABF742132D0EF00670EB5 /* SimpleCoreDataStack.swift */,
 				A5D566BF21313FFF00F4CAD0 /* Constants.swift */,
 			);
 			path = Sources;
@@ -192,7 +195,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A52E19E3212FD4390077D6E3 /* DefaultCoreDataStack.swift in Sources */,
+				A52E19E3212FD4390077D6E3 /* AdvancedCoreDataStack.swift in Sources */,
+				A53ABF752132D0EF00670EB5 /* SimpleCoreDataStack.swift in Sources */,
 				A5D566C32131445200F4CAD0 /* Bundle.swift in Sources */,
 				A5D566C5213144BA00F4CAD0 /* FileManager.swift in Sources */,
 				A5D566CA2131566B00F4CAD0 /* NSManagedObjectModel.swift in Sources */,
