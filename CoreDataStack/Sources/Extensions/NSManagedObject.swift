@@ -46,14 +46,12 @@ public extension NSManagedObject {
     
     // MARK: - Create
     
-    @discardableResult class func create(in context: NSManagedObjectContext) -> Self? {
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: entityName, in: context) else { return nil }
-        let object = self.init(entity: entityDescription, insertInto: context)
-        return object
+    @discardableResult class func create(in context: NSManagedObjectContext) -> Self {
+        return self.init(context: context)
     }
     
-    @discardableResult class func create(with attributes: [String : Any], in context: NSManagedObjectContext) -> Self? {
-        guard let object = create(in: context) else { return nil }
+    @discardableResult class func create(with attributes: [String : Any], in context: NSManagedObjectContext) -> Self {
+        let object = create(in: context)
         if !attributes.isEmpty {
             object.setValuesForKeys(attributes)
         }
