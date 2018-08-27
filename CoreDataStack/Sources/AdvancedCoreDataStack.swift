@@ -31,9 +31,9 @@ open class AdvancedCoreDataStack: CoreDataStack {
     }
     
     public class func buildAsync(withDataModelNamed dataModelName: String? = nil, storeURL: URL = AdvancedCoreDataStack.defaultStoreURL,
-                                  storeType: String = NSInMemoryStoreType, completion: @escaping (CoreDataStack) -> Void) {
+                                 completion: @escaping (CoreDataStack) -> Void) {
         DispatchQueue.global().async {
-            let coreDataStack = AdvancedCoreDataStack(withDataModelNamed: dataModelName, storeURL: storeURL, storeType: storeType)
+            let coreDataStack = AdvancedCoreDataStack(withDataModelNamed: dataModelName, storeURL: storeURL)
             DispatchQueue.main.async {
                 completion(coreDataStack)
             }
@@ -42,14 +42,13 @@ open class AdvancedCoreDataStack: CoreDataStack {
     
     // MARK: - Lifecycle -
     
-    public init(withDataModelNamed dataModelName: String? = nil, storeURL: URL = AdvancedCoreDataStack.defaultStoreURL,
-                storeType: String = NSSQLiteStoreType) {
+    public init(withDataModelNamed dataModelName: String? = nil, storeURL: URL = AdvancedCoreDataStack.defaultStoreURL) {
         self.dataModel = NSManagedObjectModel.model(named: dataModelName)
         self.mainCoordinator = NSPersistentStoreCoordinator(managedObjectModel: dataModel)
         self.writerCoordinator = NSPersistentStoreCoordinator(managedObjectModel: dataModel)
         self.mainContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType, coordinator: mainCoordinator,
                                                   mergePolicy: NSMergeByPropertyStoreTrumpMergePolicy)
-        let storeDescription = NSPersistentStoreDescription(with: storeURL, type: storeType)
+        let storeDescription = NSPersistentStoreDescription(with: storeURL, type: NSSQLiteStoreType)
         self.connectStore(toCoordinator: mainCoordinator, with: storeDescription)
         self.connectStore(toCoordinator: writerCoordinator, with: storeDescription)
         self.subscribeForNotifications()
